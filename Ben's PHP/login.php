@@ -12,7 +12,6 @@ session_start();
 
    <head>
       <title>DionysusBrewery.com</title>
-      <link href = "css/bootstrap.min.css" rel = "stylesheet">
 
       <style>
          body {
@@ -95,7 +94,7 @@ if (isset($_POST['login']) && !empty($_POST['username'])
 
         $msg = 'Success';
 
-        $db_connection = pg_connect("host= dbname=DBNAME user=USERNAME password=PASSWORD");
+        $db_connection = pg_connect("host=localhost port=5432 dbname=PostgreSQL user=dionysus password=BrewMaster661");
     } else {
         $msg = 'Wrong username or password';
     }
@@ -106,8 +105,7 @@ if (isset($_POST['login']) && !empty($_POST['username'])
       <div class = "container">
 
          <form class = "form-signin" role = "form" 
-         action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); 
-?>" method = "post">
+         action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method = "post">
             <h4 class = "form-signin-heading"><?php echo $msg; ?></h4>
             <input type = "text" class = "form-control" 
                name = "username" placeholder = "username" 
